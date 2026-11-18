@@ -1,0 +1,50 @@
+{
+  "id": "default_small",
+  "upstreamId": "sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16",
+  "sampleRate": 16000,
+  "featureDim": 80,
+  "files": [
+    {
+      "name": "decoder_jit_trace-pnnx.ncnn.bin",
+      "size": 6412296,
+      "sha256": "4d1bb6ff7176907da2d19f451ba5ac13d72b56c675c8c41abd6e2f35e99bd435",
+      "magic": "476b3001000000000000000000000000"
+    },
+    {
+      "name": "decoder_jit_trace-pnnx.ncnn.param",
+      "size": 439,
+      "sha256": "cb88f5894978fd3e85369d2f8ea55621809fceb2b5158243fb0cd025eb4f1aaf",
+      "magic": "373736373531370a3620360a496e7075"
+    },
+    {
+      "name": "encoder_jit_trace-pnnx.ncnn.bin",
+      "size": 39222748,
+      "sha256": "0d3678d99dbb821d127511552c5c8451319a24469c5e5fbd9da1f7084254240f",
+      "magic": "06707b3f2522803f4bbb763f6c85883e"
+    },
+    {
+      "name": "encoder_jit_trace-pnnx.ncnn.param",
+      "size": 111810,
+      "sha256": "8025162b7d5042a4b06f3794fcd6bda7533eec65ce50533df7d8b0d91ff70887",
+      "magic": "373736373531370a3134373420313830"
+    },
+    {
+      "name": "joiner_jit_trace-pnnx.ncnn.bin",
+      "size": 7219652,
+      "sha256": "2ee60ac939e61494ef3cacf2768e0d786ed7461e636664f078dd6829877b6377",
+      "magic": "476b3001391d792ba119d4ae37a8eca4"
+    },
+    {
+      "name": "joiner_jit_trace-pnnx.ncnn.param",
+      "size": 490,
+      "sha256": "75f733e68e479904181fdcf48a6a717b2b0fecbd364413e73bd44f25828922ce",
+      "magic": "373736373531370a3720370a496e7075"
+    },
+    {
+      "name": "tokens.txt",
+      "size": 56317,
+      "sha256": "a8e0e4ec53810e433789b54a5c0134a7eaa2ffca595a6334d54c00da858841d3",
+      "magic": "3c626c6b3e20300a3c736f732f656f73"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "standard_bilingual",
+  "upstreamId": "sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13",
+  "revision": "05945efc40afe4b572542f01104ca5c413a9f6e1",
+  "sampleRate": 16000,
+  "featureDim": 80,
+  "totalBytes": 141346210,
+  "tokenLines": 6257,
+  "files": [
+    {
+      "name": "encoder_jit_trace-pnnx.ncnn.param",
+      "size": 161888,
+      "sha256": "97ad0954fb2cb4730f87a7eb66401b024f756752ece246e4b2063f870ebf3e18",
+      "magic": "373736373531370a3231303920323631",
+      "gitBlobId": "3910a9cb548aae8e3ce3a3919f867c099b9e5eca"
+    },
+    {
+      "name": "encoder_jit_trace-pnnx.ncnn.bin",
+      "size": 127364056,
+      "sha256": "4ed65f05b78c0106d3d176018ab01e26a15c200604490d3d49b08cc75a122dd0",
+      "magic": "e6c8783f36676c3ffca9653f7c18803f",
+      "gitBlobId": "e410248a186179ee18b176aeab8b390cf7a76385",
+      "lfsSha256": "4ed65f05b78c0106d3d176018ab01e26a15c200604490d3d49b08cc75a122dd0"
+    },
+    {
+      "name": "decoder_jit_trace-pnnx.ncnn.param",
+      "size": 439,
+      "sha256": "cb88f5894978fd3e85369d2f8ea55621809fceb2b5158243fb0cd025eb4f1aaf",
+      "magic": "373736373531370a3620360a496e7075",
+      "gitBlobId": "94085a4c1ad308adc4cf24cb13202d292b0b0914"
+    },
+    {
+      "name": "decoder_jit_trace-pnnx.ncnn.bin",
+      "size": 6412296,
+      "sha256": "dc4df2d8e1ddee1b90ac72a2de982eb1d320ee6c9a70e1dee4d23d9acfc8b978",
+      "magic": "476b3001000000000000000000000000",
+      "gitBlobId": "a76f147053b7d0e5fd69e2b2a0207f2841ee48e2",
+      "lfsSha256": "dc4df2d8e1ddee1b90ac72a2de982eb1d320ee6c9a70e1dee4d23d9acfc8b978"
+    },
+    {
+      "name": "joiner_jit_trace-pnnx.ncnn.param",
+      "size": 490,
+      "sha256": "46c339f3869136c2f6d9d9d6983a6cbc2bfbcd0e3dab0f76ae25e9477f00a360",
+      "magic": "373736373531370a3720370a496e7075",
+      "gitBlobId": "a5a247e24b998e37e7c62e892c206b30943b5eec"
+    },
+    {
+      "name": "joiner_jit_trace-pnnx.ncnn.bin",
+      "size": 7350724,
+      "sha256": "0e6c4370017394de5d74128756233d2e4451209e63ac2abd525da3b089e8bee1",
+      "magic": "476b3001f834689cde2d4cb00a2869af",
+      "gitBlobId": "254faced48f329ab80d76f0d97137d19ff31fc7a",
+      "lfsSha256": "0e6c4370017394de5d74128756233d2e4451209e63ac2abd525da3b089e8bee1"
+    },
+    {
+      "name": "tokens.txt",
+      "size": 56317,
+      "sha256": "a8e0e4ec53810e433789b54a5c0134a7eaa2ffca595a6334d54c00da858841d3",
+      "magic": "3c626c6b3e20300a3c736f732f656f73",
+      "gitBlobId": "980dd6cd2d71532898b1eac4a4ac9a91302083b6"
+    }
+  ]
+}

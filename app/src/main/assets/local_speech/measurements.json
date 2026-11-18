@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "sourcePath": "six-model-research/production-adapter-tests/all-results.json",
+  "memoryMetric": "/proc/self/status VmHWM; kB interpreted as KiB; whole fresh test process peak, not app steady-state or guaranteed requirement",
+  "fixture": "public-0.wav",
+  "audioSeconds": 10.053125,
+  "diskCacheCold": false,
+  "serviceIpcTested": false,
+  "accuracyMeasured": false,
+  "models": [
+    {
+      "id": "qwen3_asr_06b_q4_k_m",
+      "peakRssKiB": 1203308,
+      "factoryMs": 802,
+      "decodeMs": 24115
+    },
+    {
+      "id": "qwen3_asr_06b_q5_k_m",
+      "peakRssKiB": 1260716,
+      "factoryMs": 574,
+      "decodeMs": 19555
+    },
+    {
+      "id": "sensevoice_small_f16",
+      "peakRssKiB": 670024,
+      "factoryMs": 166,
+      "decodeMs": 7123
+    },
+    {
+      "id": "sensevoice_small_q8_0",
+      "peakRssKiB": 457524,
+      "factoryMs": 86,
+      "decodeMs": 4325
+    },
+    {
+      "id": "sensevoice_small_q4_k_m",
+      "peakRssKiB": 353908,
+      "factoryMs": 89,
+      "decodeMs": 4117
+    },
+    {
+      "id": "sensevoice_small_int8",
+      "peakRssKiB": 479460,
+      "factoryMs": 2419,
+      "decodeMs": 516
+    }
+  ]
+}

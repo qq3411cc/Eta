@@ -1,0 +1,5 @@
+Model metadata only. No model weights are shipped in assets.
+Qwen3-ASR: Qwen/Alibaba; GGUF conversion: handy-computer. Apache-2.0 LICENSE and NOTICE retained.
+SenseVoice Small: FunAudioLLM/Alibaba; GGUF conversion: handy-computer; ONNX conversion: csukuangfj. Governed by FunASR Model Open Source License Agreement v1.1, NOT Apache-2.0; retain source, authors and model names, and review the full license including conduct/restriction provisions. Converter/runtime license does not override model terms.
+transcribe.cpp and vendored ggml runtime licensing are distinct from model weights. See project native notices for all runtime components.
+No accuracy validation or guarantee is implied by catalog or two-sample smoke testing.

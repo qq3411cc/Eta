@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "models": [
+    {
+      "id": "default_small",
+      "repository": "csukuangfj/sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16",
+      "revision": "5fb2fb06fe78a776dbda78226c42d435359064f7",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "name": "decoder_jit_trace-pnnx.ncnn.bin",
+          "sha256": "4d1bb6ff7176907da2d19f451ba5ac13d72b56c675c8c41abd6e2f35e99bd435",
+          "gitBlobId": "c334959aeede5abf19e729c382c96ac4c1c5b592",
+          "lfs": {
+            "sha256": "4d1bb6ff7176907da2d19f451ba5ac13d72b56c675c8c41abd6e2f35e99bd435",
+            "size": 6412296,
+            "pointerSize": 132
+          }
+        },
+        {
+          "name": "decoder_jit_trace-pnnx.ncnn.param",
+          "sha256": "cb88f5894978fd3e85369d2f8ea55621809fceb2b5158243fb0cd025eb4f1aaf",
+          "gitBlobId": "94085a4c1ad308adc4cf24cb13202d292b0b0914",
+          "lfs": null
+        },
+        {
+          "name": "encoder_jit_trace-pnnx.ncnn.bin",
+          "sha256": "0d3678d99dbb821d127511552c5c8451319a24469c5e5fbd9da1f7084254240f",
+          "gitBlobId": "0d0ddd0ee7f00288a7d33b6e55532d761ae2e1b5",
+          "lfs": {
+            "sha256": "0d3678d99dbb821d127511552c5c8451319a24469c5e5fbd9da1f7084254240f",
+            "size": 39222748,
+            "pointerSize": 133
+          }
+        },
+        {
+          "name": "encoder_jit_trace-pnnx.ncnn.param",
+          "sha256": "8025162b7d5042a4b06f3794fcd6bda7533eec65ce50533df7d8b0d91ff70887",
+          "gitBlobId": "f6099110a26da1fc51c24556a5046fd9ffba104e",
+          "lfs": null
+        },
+        {
+          "name": "joiner_jit_trace-pnnx.ncnn.bin",
+          "sha256": "2ee60ac939e61494ef3cacf2768e0d786ed7461e636664f078dd6829877b6377",
+          "gitBlobId": "4a6707f69430ac8d0a86ca95912ed802052097e5",
+          "lfs": {
+            "sha256": "2ee60ac939e61494ef3cacf2768e0d786ed7461e636664f078dd6829877b6377",
+            "size": 7219652,
+            "pointerSize": 132
+          }
+        },
+        {
+          "name": "joiner_jit_trace-pnnx.ncnn.param",
+          "sha256": "75f733e68e479904181fdcf48a6a717b2b0fecbd364413e73bd44f25828922ce",
+          "gitBlobId": "299fc1f16cb98e741d7099eae93fbaacf249f1ef",
+          "lfs": null
+        },
+        {
+          "name": "tokens.txt",
+          "sha256": "a8e0e4ec53810e433789b54a5c0134a7eaa2ffca595a6334d54c00da858841d3",
+          "gitBlobId": "980dd6cd2d71532898b1eac4a4ac9a91302083b6",
+          "lfs": null
+        }
+      ]
+    },
+    {
+      "id": "standard_bilingual",
+      "repository": "csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13",
+      "revision": "05945efc40afe4b572542f01104ca5c413a9f6e1",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "name": "encoder_jit_trace-pnnx.ncnn.param",
+          "sha256": "97ad0954fb2cb4730f87a7eb66401b024f756752ece246e4b2063f870ebf3e18",
+          "gitBlobId": "3910a9cb548aae8e3ce3a3919f867c099b9e5eca",
+          "lfs": null
+        },
+        {
+          "name": "encoder_jit_trace-pnnx.ncnn.bin",
+          "sha256": "4ed65f05b78c0106d3d176018ab01e26a15c200604490d3d49b08cc75a122dd0",
+          "gitBlobId": "e410248a186179ee18b176aeab8b390cf7a76385",
+          "lfs": {
+            "sha256": "4ed65f05b78c0106d3d176018ab01e26a15c200604490d3d49b08cc75a122dd0",
+            "size": 127364056,
+            "pointerSize": 134
+          }
+        },
+        {
+          "name": "decoder_jit_trace-pnnx.ncnn.param",
+          "sha256": "cb88f5894978fd3e85369d2f8ea55621809fceb2b5158243fb0cd025eb4f1aaf",
+          "gitBlobId": "94085a4c1ad308adc4cf24cb13202d292b0b0914",
+          "lfs": null
+        },
+        {
+          "name": "decoder_jit_trace-pnnx.ncnn.bin",
+          "sha256": "dc4df2d8e1ddee1b90ac72a2de982eb1d320ee6c9a70e1dee4d23d9acfc8b978",
+          "gitBlobId": "a76f147053b7d0e5fd69e2b2a0207f2841ee48e2",
+          "lfs": {
+            "sha256": "dc4df2d8e1ddee1b90ac72a2de982eb1d320ee6c9a70e1dee4d23d9acfc8b978",
+            "size": 6412296,
+            "pointerSize": 132
+          }
+        },
+        {
+          "name": "joiner_jit_trace-pnnx.ncnn.param",
+          "sha256": "46c339f3869136c2f6d9d9d6983a6cbc2bfbcd0e3dab0f76ae25e9477f00a360",
+          "gitBlobId": "a5a247e24b998e37e7c62e892c206b30943b5eec",
+          "lfs": null
+        },
+        {
+          "name": "joiner_jit_trace-pnnx.ncnn.bin",
+          "sha256": "0e6c4370017394de5d74128756233d2e4451209e63ac2abd525da3b089e8bee1",
+          "gitBlobId": "254faced48f329ab80d76f0d97137d19ff31fc7a",
+          "lfs": {
+            "sha256": "0e6c4370017394de5d74128756233d2e4451209e63ac2abd525da3b089e8bee1",
+            "size": 7350724,
+            "pointerSize": 132
+          }
+        },
+        {
+          "name": "tokens.txt",
+          "sha256": "a8e0e4ec53810e433789b54a5c0134a7eaa2ffca595a6334d54c00da858841d3",
+          "gitBlobId": "980dd6cd2d71532898b1eac4a4ac9a91302083b6",
+          "lfs": null
+        }
+      ]
+    }
+  ]
+}

@@ -10,8 +10,11 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Agent run 期间把执行通知提升为 Live Update，显示在状态栏胶囊与锁屏；普通权限，用户可在通知设置中关闭。 -->
     <uses-permission android:name="android.permission.POST_PROMOTED_NOTIFICATIONS" />
+    <!-- ColorOS 流体云实时活动（normal 级，声明即授予） -->
+    <uses-permission android:name="com.oplus.systemui.permission.LIVE_ALERT_SERVICE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -22,26 +25,35 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <!-- 自动备份周期可短到 10 分钟，需要精确闹钟才能在亮屏时准点到点。 -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Agent 的应用发现与可见性自检需要完整应用列表，launcher queries 不能覆盖该能力。 -->
     <uses-permission
         android:name="android.permission.QUERY_ALL_PACKAGES"
         tools:ignore="QueryAllPackagesPermission" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
 
     <permission
-        android:name="io.github.mangi.eta.permission.CONTROL_ACCESSIBILITY_PROTECTION"
+        android:name="${applicationId}.permission.CONTROL_ACCESSIBILITY_PROTECTION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="io.github.mangi.eta.permission.CONTROL_ACCESSIBILITY_PROTECTION" />
+    <uses-permission android:name="${applicationId}.permission.CONTROL_ACCESSIBILITY_PROTECTION" />
 
     <queries>
+        <!-- MT2 管理器：targetSdk 37 有包可见性限制，不声明就 getPackageInfo 直接抛异常，
+             表现出来是「没有安装 MT2 管理器」。 -->
+        <package android:name="bin.mt.plus" />
+        <package android:name="bin.mt.plus.canary" />
+        <package android:name="com.vivo.ai.copilot" />
         <package android:name="com.google.android.googlequicksearchbox" />
         <intent>
             <action android:name="android.speech.RecognitionService" />
@@ -55,19 +67,30 @@
     <application
         android:name=".EtaApp"
         android:allowBackup="false"
+        android:largeHeap="true"
         android:description="@string/xposed_description"
         android:enableOnBackInvokedCallback="true"
         android:hasCode="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="${applicationLabel}"
         android:localeConfig="@xml/locales_config"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round">
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/eta_file_paths" />
+        </provider>
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="${applicationLabel}"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Eta"
             android:windowSoftInputMode="adjustResize">
@@ -75,23 +98,18 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!-- 分享入口：别的应用点「分享 → Eta」，文字/图片直接进当前会话输入框。 -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="*/*" />
+                <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.SEND_MULTIPLE" />
+                <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="*/*" />
+                <data android:mimeType="image/*" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".ui.screens.browser.AgentBrowserActivity"
-            android:exported="false"
-            android:theme="@style/Theme.Eta"
-            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".agent.voice.EtaVoiceAssistActivity"
@@ -106,6 +124,25 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <receiver android:name=".agent.display.MainScreenFallbackReceiver" android:exported="false" />
+        <receiver android:name=".agent.display.dashboard.AgentLiveActionReceiver" android:exported="false" />
+        <activity android:name=".agent.runtime.SupplementActivity" android:exported="false"
+            android:theme="@style/Theme.EtaTakeover" android:excludeFromRecents="true"
+            android:taskAffinity="" android:launchMode="singleInstance"
+            android:noHistory="true" android:windowSoftInputMode="adjustResize|stateVisible" />
+        <activity android:name=".agent.display.TakeoverActivity" android:exported="false"
+            android:theme="@style/Theme.EtaTakeover" android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".agent.runtime.SupplementActivity" android:exported="false"
+            android:theme="@style/Theme.EtaTakeover" android:excludeFromRecents="true"
+            android:taskAffinity="" android:launchMode="singleInstance"
+            android:noHistory="true" android:windowSoftInputMode="adjustResize|stateVisible" />
+        <activity android:name=".agent.display.dashboard.AgentConfirmActivity" android:exported="false"
+            android:theme="@style/Theme.Eta" android:windowSoftInputMode="adjustResize" />
+<activity android:name=".agent.display.VirtualScreenHomeActivity" android:exported="false"
+            android:excludeFromRecents="true" android:resizeableActivity="true"
+            android:taskAffinity="io.github.mangi.eta.virtualscreen"
+            android:theme="@style/Theme.Eta" />
 
         <service
             android:name=".agent.voice.EtaVoiceInteractionService"
@@ -140,6 +177,16 @@
                 android:resource="@xml/recognition_service" />
         </service>
 
+        <!-- 本机离线识别：引擎在独立进程加载 native，避免把 App 主进程拖垮 -->
+        <service android:name=".agent.voice.local.LocalSpeechService"
+            android:exported="false" android:process=":local_speech" />
+
+        <service android:name=".agent.voice.qwen.QwenAsrService"
+            android:exported="false" android:process=":qwen_asr" />
+
+        <service android:name=".agent.voice.offline.OfflineAsrService"
+            android:exported="false" android:process=":offline_asr" />
+
         <service
             android:name=".agent.voice.EtaAssistantOverlayService"
             android:foregroundServiceType="microphone|mediaPlayback"
@@ -152,7 +199,8 @@
 
         <service
             android:name=".agent.runtime.AgentRuntimeService"
-            android:exported="false" />
+            android:exported="true"
+            tools:ignore="ExportedService" />
 
         <service
             android:name=".agent.runtime.AgentExecutionService"
@@ -162,6 +210,44 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="User-initiated interactive terminals, local Linux services and device automation tasks" />
         </service>
+
+        <service android:name=".agent.automation.AgentTaskJobService"
+            android:exported="true" android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service android:name=".agent.automation.AgentTriggerMonitorService"
+            android:exported="false" android:foregroundServiceType="specialUse">
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="User-configured event trigger monitoring for saved assistant tasks" />
+        </service>
+        <receiver android:name=".agent.automation.AgentTaskReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".agent.automation.AgentTaskRetryNowReceiver" android:exported="false" />
+        <receiver android:name=".core.DiagnosticsAutoExportReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".agent.automation.AutoBackupReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".core.DiagnosticsPatrolReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
 
         <service
             android:name=".agent.accessibility.AgentAccessibilityService"
@@ -188,10 +274,26 @@
 
         <provider
             android:name=".agent.accessibility.AgentAccessibilityHealthProvider"
-            android:authorities="io.github.mangi.eta.accessibility.health"
+            android:authorities="${applicationId}.accessibility.health"
             android:exported="true"
             android:grantUriPermissions="false"
             android:permission="android.permission.MANAGE_ACCESSIBILITY" />
+
+        <!-- 直通出帧：root helper 通过该 provider 取当前活动 Surface（authority 随包名变化，
+             测试版为 io.github.mangi.eta.beta.hostsurface）。provider 内部用一次性 token 校验，
+             token 只经 stdio 交给 helper，第三方应用即使拿到 authority 也取不到 Surface。 -->
+        <provider
+            android:name=".agent.display.VirtualScreenSurfaceProvider"
+            android:authorities="${applicationId}.hostsurface"
+            android:exported="true"
+            android:grantUriPermissions="false" />
+
+        <!-- 借用厂商助手模型：接收小布进程内 hook 旁路回来的回答；调用方在 provider 内校验 -->
+        <provider
+            android:name=".agent.breeno.BreenoTapProvider"
+            android:authorities="${applicationId}.breeno-tap"
+            android:exported="true"
+            android:grantUriPermissions="false" />
     </application>
 
 </manifest>

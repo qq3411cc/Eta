@@ -1,0 +1,734 @@
+{
+  "schemaVersion": 1,
+  "recommendedModelId": "sensevoice_small_q8_0",
+  "installedModelId": null,
+  "noInstalledModelPolicy": "REQUIRE_EXPLICIT_INSTALL",
+  "allowSilentFallback": false,
+  "recommendationRationale": "SenseVoice Q8_0 is the sole recommended choice and fallback for an absent or invalid saved selection. All seven other models remain optional. Existing valid saved selections are preserved. Recommendation is a product preference, not a measured accuracy, latency or RAM ranking; fixture/device observations are not guarantees.",
+  "models": [
+    {
+      "id": "qwen3_asr_06b_q4_k_m",
+      "displayName": "Qwen3-ASR 0.6B Q4_K_M（混合量化）",
+      "engine": "GGUF",
+      "architecture": "qwen3_asr",
+      "quantization": "Q4_K_M",
+      "container": "GGUF",
+      "description": "多语言离线ASR；混合K量化不等于exact Q4_K。 实际文件为 Q4_K_M（M混合量化）；M后缀不可省略，不宣称纯Q4_K/Q5_K。 质量候选，未测CER，不承诺优于SenseVoice。",
+      "licenseName": "Apache-2.0",
+      "licenseAsset": "local_speech/licenses/Qwen-Apache-2.0.txt",
+      "files": [
+        {
+          "name": "Qwen3-ASR-0.6B-Q4_K_M.gguf",
+          "sha256": "5b58f32a58ffa2c8783e0b0963485623e286e6272d953dfc9e28bc3447dee0c0",
+          "sizeBytes": 589560480,
+          "pinnedUrl": "https://huggingface.co/handy-computer/Qwen3-ASR-0.6B-gguf/resolve/7e7c69a577fa2725dfedbe34b5e999336e30a19b/Qwen3-ASR-0.6B-Q4_K_M.gguf",
+          "revision": "7e7c69a577fa2725dfedbe34b5e999336e30a19b",
+          "role": "model"
+        }
+      ],
+      "sizeBytes": 589560480,
+      "sha256": "5b58f32a58ffa2c8783e0b0963485623e286e6272d953dfc9e28bc3447dee0c0",
+      "name": "Qwen3-ASR-0.6B-Q4_K_M.gguf",
+      "pinnedUrl": "https://huggingface.co/handy-computer/Qwen3-ASR-0.6B-gguf/resolve/7e7c69a577fa2725dfedbe34b5e999336e30a19b/Qwen3-ASR-0.6B-Q4_K_M.gguf",
+      "downloadVerified": true,
+      "deviceValidation": {
+        "status": "passed_two_public_wavs",
+        "exitCode": 0,
+        "stage": "finished",
+        "evidence": "six-model-research/native-quant-fix/all-gguf-results.json",
+        "evidenceModelFile": "Qwen3-ASR-0.6B-Q4_K_M.gguf",
+        "nativeSha256": "cac5794d68efaf0f95efc2b2d5ccd4aecd071aabb0462890a458309e27ab2dfc",
+        "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+        "loadMs": 470,
+        "decodeMs": [
+          6105,
+          6229
+        ],
+        "accuracyMeasured": false,
+        "supersedesHistoricalTimeout": true
+      },
+      "available": true,
+      "availabilityReason": null,
+      "deviceValidationHistory": [
+        {
+          "status": "failed",
+          "exitCode": 124,
+          "evidence": "six-model-research/device-tests/Qwen3-ASR-0.6B-Q4_K_M.gguf.result.json",
+          "stage": "decode:public-0.wav",
+          "error": null,
+          "timeoutStage": "decode:public-0.wav"
+        }
+      ],
+      "costBasis": "Model payload bytes on disk, including required tokens; NOT runtime RSS",
+      "accuracyMeasured": false
+    },
+    {
+      "id": "qwen3_asr_06b_q5_k_m",
+      "displayName": "Qwen3-ASR 0.6B Q5_K_M（混合量化）",
+      "engine": "GGUF",
+      "architecture": "qwen3_asr",
+      "quantization": "Q5_K_M",
+      "container": "GGUF",
+      "description": "多语言离线ASR；模型格式与量化信息不构成准确率证明。 实际文件为 Q5_K_M（M混合量化）；M后缀不可省略，不宣称纯Q4_K/Q5_K。 质量候选，未测CER，不承诺优于SenseVoice。",
+      "licenseName": "Apache-2.0",
+      "licenseAsset": "local_speech/licenses/Qwen-Apache-2.0.txt",
+      "files": [
+        {
+          "name": "Qwen3-ASR-0.6B-Q5_K_M.gguf",
+          "sha256": "062a7bcb18675c2fe5ffd0e8b354eac6a1ceada9b2af9ef7168746ae16b54358",
+          "sizeBytes": 645356192,
+          "pinnedUrl": "https://huggingface.co/handy-computer/Qwen3-ASR-0.6B-gguf/resolve/7e7c69a577fa2725dfedbe34b5e999336e30a19b/Qwen3-ASR-0.6B-Q5_K_M.gguf",
+          "revision": "7e7c69a577fa2725dfedbe34b5e999336e30a19b",
+          "role": "model"
+        }
+      ],
+      "sizeBytes": 645356192,
+      "sha256": "062a7bcb18675c2fe5ffd0e8b354eac6a1ceada9b2af9ef7168746ae16b54358",
+      "name": "Qwen3-ASR-0.6B-Q5_K_M.gguf",
+      "pinnedUrl": "https://huggingface.co/handy-computer/Qwen3-ASR-0.6B-gguf/resolve/7e7c69a577fa2725dfedbe34b5e999336e30a19b/Qwen3-ASR-0.6B-Q5_K_M.gguf",
+      "downloadVerified": true,
+      "deviceValidation": {
+        "status": "passed_two_public_wavs",
+        "exitCode": 0,
+        "stage": "finished",
+        "evidence": "six-model-research/native-quant-fix/all-gguf-results.json",
+        "evidenceModelFile": "Qwen3-ASR-0.6B-Q5_K_M.gguf",
+        "nativeSha256": "cac5794d68efaf0f95efc2b2d5ccd4aecd071aabb0462890a458309e27ab2dfc",
+        "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+        "loadMs": 330,
+        "decodeMs": [
+          7252,
+          7462
+        ],
+        "accuracyMeasured": false,
+        "supersedesHistoricalTimeout": true
+      },
+      "available": true,
+      "availabilityReason": null,
+      "deviceValidationHistory": [
+        {
+          "status": "failed",
+          "exitCode": 124,
+          "evidence": "six-model-research/device-tests/Qwen3-ASR-0.6B-Q5_K_M.gguf.result.json",
+          "stage": "decode:public-0.wav",
+          "error": null,
+          "timeoutStage": "decode:public-0.wav"
+        }
+      ],
+      "costBasis": "Model payload bytes on disk, including required tokens; NOT runtime RSS",
+      "accuracyMeasured": false
+    },
+    {
+      "id": "sensevoice_small_f16",
+      "displayName": "SenseVoice Small FP16（F16 GGUF）",
+      "engine": "GGUF",
+      "architecture": "sensevoice",
+      "quantization": "F16",
+      "container": "GGUF",
+      "description": "多语言离线ASR；模型格式与量化信息不构成准确率证明。F16表示主要权重半精度，GGUF是文件容器；词表内置，无需独立tokens。 此profile为F16 GGUF，非FP16 ONNX；GGUF内置词表。",
+      "licenseName": "FunASR Model Open Source License Agreement v1.1 (SenseVoice Model License)",
+      "licenseAsset": "local_speech/licenses/SenseVoice-Model-License-1.1.txt",
+      "files": [
+        {
+          "name": "SenseVoiceSmall-F16.gguf",
+          "sha256": "dc172fd5ffaff0a396393cd4edd82e18403c53f8f5873bcc544ba012b70598f6",
+          "sizeBytes": 470412128,
+          "pinnedUrl": "https://huggingface.co/handy-computer/SenseVoiceSmall-gguf/resolve/ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b/SenseVoiceSmall-F16.gguf",
+          "revision": "ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b",
+          "role": "model"
+        }
+      ],
+      "sizeBytes": 470412128,
+      "sha256": "dc172fd5ffaff0a396393cd4edd82e18403c53f8f5873bcc544ba012b70598f6",
+      "name": "SenseVoiceSmall-F16.gguf",
+      "pinnedUrl": "https://huggingface.co/handy-computer/SenseVoiceSmall-gguf/resolve/ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b/SenseVoiceSmall-F16.gguf",
+      "downloadVerified": true,
+      "deviceValidation": {
+        "status": "passed_two_public_wavs",
+        "exitCode": 0,
+        "stage": "finished",
+        "evidence": "six-model-research/native-quant-fix/all-gguf-results.json",
+        "evidenceModelFile": "SenseVoiceSmall-F16.gguf",
+        "nativeSha256": "cac5794d68efaf0f95efc2b2d5ccd4aecd071aabb0462890a458309e27ab2dfc",
+        "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+        "loadMs": 54,
+        "decodeMs": [
+          2360,
+          2108
+        ],
+        "accuracyMeasured": false,
+        "supersedesHistoricalTimeout": false
+      },
+      "available": true,
+      "availabilityReason": null,
+      "deviceValidationHistory": [
+        {
+          "status": "passed_two_public_wavs",
+          "exitCode": 0,
+          "evidence": "six-model-research/device-tests/SenseVoiceSmall-F16.gguf.result.json",
+          "stage": "finished",
+          "error": null,
+          "timeoutStage": null
+        }
+      ],
+      "costBasis": "Model payload bytes on disk, including required tokens; NOT runtime RSS",
+      "accuracyMeasured": false
+    },
+    {
+      "id": "sensevoice_small_q8_0",
+      "displayName": "SenseVoice Small Q8_0",
+      "engine": "GGUF",
+      "architecture": "sensevoice",
+      "quantization": "Q8_0",
+      "container": "GGUF",
+      "description": "多语言离线ASR；模型格式与量化信息不构成准确率证明。",
+      "licenseName": "FunASR Model Open Source License Agreement v1.1 (SenseVoice Model License)",
+      "licenseAsset": "local_speech/licenses/SenseVoice-Model-License-1.1.txt",
+      "files": [
+        {
+          "name": "SenseVoiceSmall-Q8_0.gguf",
+          "sha256": "6c759ee4c9748c9b3f7a5a60ca74f0f7e685fb9d45d1378fce7cfd62f59adf29",
+          "sizeBytes": 252684608,
+          "pinnedUrl": "https://huggingface.co/handy-computer/SenseVoiceSmall-gguf/resolve/ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b/SenseVoiceSmall-Q8_0.gguf",
+          "revision": "ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b",
+          "role": "model"
+        }
+      ],
+      "sizeBytes": 252684608,
+      "sha256": "6c759ee4c9748c9b3f7a5a60ca74f0f7e685fb9d45d1378fce7cfd62f59adf29",
+      "name": "SenseVoiceSmall-Q8_0.gguf",
+      "pinnedUrl": "https://huggingface.co/handy-computer/SenseVoiceSmall-gguf/resolve/ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b/SenseVoiceSmall-Q8_0.gguf",
+      "downloadVerified": true,
+      "deviceValidation": {
+        "status": "passed_two_public_wavs",
+        "exitCode": 0,
+        "stage": "finished",
+        "evidence": "six-model-research/native-quant-fix/all-gguf-results.json",
+        "evidenceModelFile": "SenseVoiceSmall-Q8_0.gguf",
+        "nativeSha256": "cac5794d68efaf0f95efc2b2d5ccd4aecd071aabb0462890a458309e27ab2dfc",
+        "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+        "loadMs": 60,
+        "decodeMs": [
+          2244,
+          2174
+        ],
+        "accuracyMeasured": false,
+        "supersedesHistoricalTimeout": true
+      },
+      "available": true,
+      "availabilityReason": null,
+      "deviceValidationHistory": [
+        {
+          "status": "failed",
+          "exitCode": 124,
+          "evidence": "six-model-research/device-tests/SenseVoiceSmall-Q8_0.gguf.result.json",
+          "stage": "decode:public-0.wav",
+          "error": null,
+          "timeoutStage": "decode:public-0.wav"
+        }
+      ],
+      "costBasis": "Model payload bytes on disk, including required tokens; NOT runtime RSS",
+      "accuracyMeasured": false
+    },
+    {
+      "id": "sensevoice_small_q4_k_m",
+      "displayName": "SenseVoice Small Q4_K_M（混合量化）",
+      "engine": "GGUF",
+      "architecture": "sensevoice",
+      "quantization": "Q4_K_M",
+      "container": "GGUF",
+      "description": "多语言离线ASR；混合K量化不等于exact Q4_K。 实际文件为 Q4_K_M（M混合量化）；M后缀不可省略，不宣称纯Q4_K/Q5_K。 用户所称Q4_K对应的此候选实际是Q4_K_M，不是exact Q4_K。",
+      "licenseName": "FunASR Model Open Source License Agreement v1.1 (SenseVoice Model License)",
+      "licenseAsset": "local_speech/licenses/SenseVoice-Model-License-1.1.txt",
+      "files": [
+        {
+          "name": "SenseVoiceSmall-Q4_K_M.gguf",
+          "sha256": "9d775303e6b4e793d049ef226214c400b2b1746c734ed017146a1a085b13d02b",
+          "sizeBytes": 145738304,
+          "pinnedUrl": "https://huggingface.co/handy-computer/SenseVoiceSmall-gguf/resolve/ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b/SenseVoiceSmall-Q4_K_M.gguf",
+          "revision": "ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b",
+          "role": "model"
+        }
+      ],
+      "sizeBytes": 145738304,
+      "sha256": "9d775303e6b4e793d049ef226214c400b2b1746c734ed017146a1a085b13d02b",
+      "name": "SenseVoiceSmall-Q4_K_M.gguf",
+      "pinnedUrl": "https://huggingface.co/handy-computer/SenseVoiceSmall-gguf/resolve/ff8f085a8fa2e5ccae0e849ef19ebc6dc18e608b/SenseVoiceSmall-Q4_K_M.gguf",
+      "downloadVerified": true,
+      "deviceValidation": {
+        "status": "passed_two_public_wavs",
+        "exitCode": 0,
+        "stage": "finished",
+        "evidence": "six-model-research/native-quant-fix/all-gguf-results.json",
+        "evidenceModelFile": "SenseVoiceSmall-Q4_K_M.gguf",
+        "nativeSha256": "cac5794d68efaf0f95efc2b2d5ccd4aecd071aabb0462890a458309e27ab2dfc",
+        "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+        "loadMs": 27,
+        "decodeMs": [
+          2958,
+          2211
+        ],
+        "accuracyMeasured": false,
+        "supersedesHistoricalTimeout": true
+      },
+      "available": true,
+      "availabilityReason": null,
+      "deviceValidationHistory": [
+        {
+          "status": "failed",
+          "exitCode": 124,
+          "evidence": "six-model-research/device-tests/SenseVoiceSmall-Q4_K_M.gguf.result.json",
+          "stage": "decode:public-0.wav",
+          "error": null,
+          "timeoutStage": "decode:public-0.wav"
+        }
+      ],
+      "costBasis": "Model payload bytes on disk, including required tokens; NOT runtime RSS",
+      "accuracyMeasured": false,
+      "requestedVariantAlias": "Q4_K"
+    },
+    {
+      "id": "sensevoice_small_int8",
+      "displayName": "SenseVoice Small INT8（ONNX）",
+      "engine": "SENSEVOICE_ONNX",
+      "architecture": "sensevoice",
+      "quantization": "INT8",
+      "container": "ONNX",
+      "description": "多语言离线ASR；模型格式与量化信息不构成准确率证明。",
+      "licenseName": "FunASR Model Open Source License Agreement v1.1 (SenseVoice Model License)",
+      "licenseAsset": "local_speech/licenses/SenseVoice-Model-License-1.1.txt",
+      "files": [
+        {
+          "name": "model.int8.onnx",
+          "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+          "sizeBytes": 239233841,
+          "pinnedUrl": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/2365baeacb507f821a0c8120fcee3d484dba7a07/model.int8.onnx",
+          "revision": "2365baeacb507f821a0c8120fcee3d484dba7a07",
+          "role": "model"
+        },
+        {
+          "name": "tokens.txt",
+          "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
+          "sizeBytes": 315894,
+          "pinnedUrl": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/2365baeacb507f821a0c8120fcee3d484dba7a07/tokens.txt",
+          "revision": "2365baeacb507f821a0c8120fcee3d484dba7a07",
+          "role": "tokens"
+        }
+      ],
+      "sizeBytes": 239549735,
+      "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
+      "name": "model.int8.onnx",
+      "pinnedUrl": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/2365baeacb507f821a0c8120fcee3d484dba7a07/model.int8.onnx",
+      "downloadVerified": true,
+      "deviceValidation": {
+        "status": "passed_two_public_wavs",
+        "exitCode": 0,
+        "evidence": "six-model-research/device-tests/model.int8.onnx.result.json",
+        "stage": "finished",
+        "error": null,
+        "timeoutStage": null,
+        "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+        "nativeSha256ByPath": {
+          "/workspace/eta343-upgrade/Eta-3.4.3/app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-jni.so": "5db8f89f12b2c900a98c9e01e00c475c59db35e9437a62e36e27839ec48b5575",
+          "/workspace/eta343-upgrade/Eta-3.4.3/app/src/main/jniLibs/arm64-v8a/libonnxruntime.so": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1"
+        },
+        "validationBasis": "Original successful INT8 probe; native-only GGUF rebuild did not change ONNX artifacts",
+        "loadMs": 2498,
+        "decodeMs": [
+          790,
+          1041
+        ],
+        "accuracyMeasured": false
+      },
+      "available": true,
+      "availabilityReason": null,
+      "deviceValidationHistory": [
+        {
+          "status": "passed_two_public_wavs",
+          "exitCode": 0,
+          "evidence": "six-model-research/device-tests/model.int8.onnx.result.json",
+          "stage": "finished",
+          "error": null,
+          "timeoutStage": null,
+          "traceRecordedAt": "2026-11-14T23:25:26.228304+08:00",
+          "nativeSha256ByPath": {
+            "/workspace/eta343-upgrade/Eta-3.4.3/app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-jni.so": "5db8f89f12b2c900a98c9e01e00c475c59db35e9437a62e36e27839ec48b5575",
+            "/workspace/eta343-upgrade/Eta-3.4.3/app/src/main/jniLibs/arm64-v8a/libonnxruntime.so": "33847ad43bffe204699fd4a27f7f3603452a8cdaf2f9a44983a0bc31ffcf2da1"
+          },
+          "validationBasis": "Original successful INT8 probe; native-only GGUF rebuild did not change ONNX artifacts",
+          "loadMs": 2498,
+          "decodeMs": [
+            790,
+            1041
+          ],
+          "accuracyMeasured": false
+        }
+      ],
+      "costBasis": "Model payload bytes on disk, including required tokens; NOT runtime RSS",
+      "accuracyMeasured": false
+    },
+    {
+      "id": "vosk_small_cn_022",
+      "displayName": "vosk-model-small-cn-0.22",
+      "engine": "VOSK",
+      "architecture": "vosk",
+      "quantization": "官方模型",
+      "container": "ZIP / Kaldi directory",
+      "description": "中文移动设备流式离线识别；本机 RAM、耗时与准确率未实测。",
+      "licenseName": "Apache-2.0",
+      "licenseAsset": "local_speech/licenses/Vosk-Apache-2.0.txt",
+      "licenseSource": "https://alphacephei.com/vosk/models",
+      "files": [
+        {
+          "name": "vosk/am/final.mdl",
+          "sizeBytes": 15901896,
+          "sha256": "91eda2c04c4f599361cb92b0e5298ccdf6b3c7a1fa52bfcefcd2c4e07aa1c131",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/Gr.fst",
+          "sizeBytes": 26082259,
+          "sha256": "46d41a9b1723abccdcb354d731a5b58d87c060100d88ada1a3e31220f52b0434",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/disambig_tid.int",
+          "sizeBytes": 234,
+          "sha256": "c9200318c2a265549ebfbea7e0176fa62e131e953abd140c9b0b39fe61e24015",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/phones/word_boundary.int",
+          "sizeBytes": 7161,
+          "sha256": "11ca784b99f03188b451fb54714c2de3dd694e662a5f88e82df435c2789b9aec",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/HCLr.fst",
+          "sizeBytes": 16158762,
+          "sha256": "798af0d9ba6f2d727747f58e1e7b2305f8618bc8ea7f6c51beecd8a2c965b965",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/online_cmvn.conf",
+          "sizeBytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/final.ie",
+          "sizeBytes": 9927287,
+          "sha256": "c39d46fbff04efb7baa9660ae7a728b0e2f35a4a1250b56ed3a599e26956df86",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/final.mat",
+          "sizeBytes": 44975,
+          "sha256": "42706d88818070ea0d0182b4d11367ba52a13b9a2be45630f60858a422109ada",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/final.dubm",
+          "sizeBytes": 168048,
+          "sha256": "e33276cbd548c0a03ae5812c98115940614997dff23a6d59968af6eaf7630ff8",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/splice.conf",
+          "sizeBytes": 35,
+          "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/global_cmvn.stats",
+          "sizeBytes": 1090,
+          "sha256": "b267dc89c1556fdd5bc358f0a480929da1743eeccfa06a67daf8db629ca336bb",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/conf/mfcc.conf",
+          "sizeBytes": 153,
+          "sha256": "6c326fea5741c2d78be12f76eb1b36ea2ace040da9e355e4cfe6bb80e5f7d5ab",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/conf/model.conf",
+          "sizeBytes": 289,
+          "sha256": "468a8125c07530f96adcc219a0a5f993e8e0721ccf18acbd3169b77fc685fb9b",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/README",
+          "sizeBytes": 82,
+          "sha256": "7362be411c609f2a1c9d2dfe22c2d72555c15eb90bfe47c41772f49ef94840ce",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        }
+      ],
+      "archive": {
+        "name": "vosk-model-small-cn-0.22.zip",
+        "sizeBytes": 43898754,
+        "sha256": "3af8b0e7e0f835ae9d414ce5df580237a3cfb08d586c9fbbb0f7ff29ad5b14ba",
+        "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-small-cn-0.22.zip",
+        "revision": "0.22",
+        "role": "archive"
+      },
+      "sizeBytes": 43898754,
+      "installedSizeBytes": 68292271,
+      "downloadVerified": true,
+      "available": true,
+      "availabilityReason": null,
+      "costBasis": "sizeBytes is original ZIP transfer bytes; installedSizeBytes is unpacked file bytes; neither is runtime RSS",
+      "accuracyMeasured": false,
+      "deviceValidation": {
+        "status": "not_tested",
+        "validationBasis": "Official original ZIP and all extracted payload SHA256 verified locally; device loading, streaming decode and RAM not measured"
+      }
+    },
+    {
+      "id": "vosk_cn_022",
+      "displayName": "vosk-model-cn-0.22",
+      "engine": "VOSK",
+      "architecture": "vosk",
+      "quantization": "官方模型",
+      "container": "ZIP / Kaldi directory",
+      "description": "中文大模型，官方定位服务器；运行内存需求高，非低内存或默认推荐，手机可能加载失败。",
+      "licenseName": "Apache-2.0",
+      "licenseAsset": "local_speech/licenses/Vosk-Apache-2.0.txt",
+      "licenseSource": "https://alphacephei.com/vosk/models",
+      "files": [
+        {
+          "name": "vosk/am/final.mdl",
+          "sizeBytes": 93614797,
+          "sha256": "f2c6547dbb58ab6ae3e3b53a991aedb582ae1c3b92c8d2d9a29f01147b729700",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/conf/model.conf",
+          "sizeBytes": 289,
+          "sha256": "5be64db91cc7895d29a61dafc88e61d7de9c2ffba9d2f7bffc0f16df02ece6aa",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/conf/mfcc.conf",
+          "sizeBytes": 153,
+          "sha256": "463aa0c186e327380ad8e40f0fcb76e47cceddafc57f6d635bbce5589b43e23b",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/online_cmvn.conf",
+          "sizeBytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/final.mat",
+          "sizeBytes": 44975,
+          "sha256": "42706d88818070ea0d0182b4d11367ba52a13b9a2be45630f60858a422109ada",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/splice.conf",
+          "sizeBytes": 35,
+          "sha256": "9f0c5f7c82d18eaf25d8bce470efa9f7741f88411fe428774bc0a9bb69a24756",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/global_cmvn.stats",
+          "sizeBytes": 1090,
+          "sha256": "b267dc89c1556fdd5bc358f0a480929da1743eeccfa06a67daf8db629ca336bb",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/final.dubm",
+          "sizeBytes": 168048,
+          "sha256": "e33276cbd548c0a03ae5812c98115940614997dff23a6d59968af6eaf7630ff8",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/ivector/final.ie",
+          "sizeBytes": 9927287,
+          "sha256": "c39d46fbff04efb7baa9660ae7a728b0e2f35a4a1250b56ed3a599e26956df86",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/README",
+          "sizeBytes": 94,
+          "sha256": "957448305e4440ab5440cb63d8e030e30d562361d27a8f7019daea5f2480d63d",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/phones/word_boundary.int",
+          "sizeBytes": 7161,
+          "sha256": "11ca784b99f03188b451fb54714c2de3dd694e662a5f88e82df435c2789b9aec",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/HCLG.fst",
+          "sizeBytes": 559572477,
+          "sha256": "e52fad685b5d573775991d6c0b79ee75061f3b57884d37364ab7db62b903e687",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/graph/words.txt",
+          "sizeBytes": 16061371,
+          "sha256": "e94e305b8f03c709e0f399b405ca4991b4147c39726b0de423ac1a4be322f21c",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rescore/G.carpa",
+          "sizeBytes": 1197297328,
+          "sha256": "73a3ff6ddfd543188e8abd39066f4f380a930907cfc918cf3a8708f68044fdcd",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rescore/G.fst",
+          "sizeBytes": 109211014,
+          "sha256": "5610d9d3e10274bcede0e434f708efad66b94e53dd0d301a5d622a4675596c98",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/feat_embedding.final.mat",
+          "sizeBytes": 42783695,
+          "sha256": "c91d877df31a4983f54ddd3a5b5fa206a0bfbf176be4b9755179d32ea6bcbd7f",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/special_symbol_opts.conf",
+          "sizeBytes": 60,
+          "sha256": "d02b460ced98e40a492ee87453455c757f8328651562e984a92d7577f1ef933b",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/word_feats.txt",
+          "sizeBytes": 54875212,
+          "sha256": "c62ce7030d0e9756f58d4a8bbe6d78da5f324d3fcd705db7d2a874c22581bc57",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/oov.txt",
+          "sizeBytes": 6,
+          "sha256": "f577fde80148652a470eb4a0e87c9c2ae907ae3039051017832419ae463bd9be",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/special_symbol_opts.txt",
+          "sizeBytes": 61,
+          "sha256": "242273e7e7f10f6b409ace93c11b5097fcfadaa1e034ea1aeaa6a3b169f0b73c",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/features.txt",
+          "sizeBytes": 662407,
+          "sha256": "5cf1a9f5660c71aa2dd9e09524d6fcf5b409165c1b06c3d8df7b2a71eee311a1",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        },
+        {
+          "name": "vosk/rnnlm/final.raw",
+          "sizeBytes": 59249149,
+          "sha256": "a006734e532b580d6eb960b58dd7e2c058f68a9bbae3755d5f354a2ec78b9b71",
+          "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+          "revision": "0.22",
+          "role": "payload"
+        }
+      ],
+      "archive": {
+        "name": "vosk-model-cn-0.22.zip",
+        "sizeBytes": 1358736686,
+        "sha256": "7f5580bf7ca3d9e8ce8be68337378950ed78ef974df7a7d4ead8dbe32bec2fa1",
+        "pinnedUrl": "https://alphacephei.com/vosk/models/vosk-model-cn-0.22.zip",
+        "revision": "0.22",
+        "role": "archive"
+      },
+      "sizeBytes": 1358736686,
+      "installedSizeBytes": 2143476709,
+      "downloadVerified": true,
+      "available": true,
+      "availabilityReason": null,
+      "costBasis": "sizeBytes is original ZIP transfer bytes; installedSizeBytes is unpacked file bytes; neither is runtime RSS",
+      "accuracyMeasured": false,
+      "deviceValidation": {
+        "status": "not_tested",
+        "validationBasis": "Official original ZIP and all extracted payload SHA256 verified locally; device loading, streaming decode and RAM not measured"
+      }
+    }
+  ],
+  "validationTrace": {
+    "metadataUpdatedAt": "2026-11-14T23:25:26.228304+08:00",
+    "ggufNativeSha256": "cac5794d68efaf0f95efc2b2d5ccd4aecd071aabb0462890a458309e27ab2dfc",
+    "ggufEvidence": "six-model-research/native-quant-fix/all-gguf-results.json",
+    "fixReport": "six-model-research/native-quant-fix/REPORT.md",
+    "change": "C Release flags -O3 -DNDEBUG; no weight or JNI API changes",
+    "int8Evidence": "six-model-research/device-tests/model.int8.onnx.result.json",
+    "accuracyMeasured": false
+  }
+}

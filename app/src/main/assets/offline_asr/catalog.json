@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "defaultId": "standard_bilingual",
+  "models": [
+    {
+      "id": "default_small",
+      "label": "Small bilingual zh/en",
+      "totalBytes": 53023752,
+      "sampleRate": 16000,
+      "featureDim": 80,
+      "recommended": false,
+      "description": "Lower storage and memory cost. Real Small JNI inference passed; CER/WER not measured."
+    },
+    {
+      "id": "standard_bilingual",
+      "label": "Standard bilingual zh/en",
+      "totalBytes": 141346210,
+      "sampleRate": 16000,
+      "featureDim": 80,
+      "recommended": true,
+      "description": "Accuracy-priority candidate, not proven more accurate. Higher loading, memory and compute cost; no CER/WER comparison. Native inference validation is separate from checksum verification."
+    }
+  ]
+}
