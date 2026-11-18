@@ -2,6 +2,8 @@ name: build-local-speech
 
 # 本机离线识别（ggml/transcribe + Vosk + sherpa-ncnn）移植版构建。
 # native 库不随仓库分发：编译前从 Time-IU/Eta 拉取预编译 .so。
+# 固定用 Gradle 9.9.1：wrapper 的 9.7.1 在 AGP 9.5.1 下处理 manifestPlaceholders 会漏值
+# （processDebugMainManifest 报 applicationLabel 未替换），本机 9.9.1 正常。
 on:
   workflow_dispatch:
     inputs:
@@ -22,13 +24,11 @@ jobs:
           distribution: temurin
           java-version: '25'
 
-      - name: Cache Gradle
-        uses: actions/cache@v4
+      - name: Set up Gradle 9.9.1
+        uses: gradle/actions/setup-gradle@v4
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: gradle-${{ hashFiles('**/*.gradle.kts', 'gradle/libs.versions.toml') }}
+          gradle-version: '9.9.1'
+          cache-read-only: false
 
       - name: Fetch native libs from Time-IU/Eta
         run: |
@@ -46,11 +46,11 @@ jobs:
           ETA_RELEASE_KEY_ALIAS: ${{ secrets.ETA_RELEASE_KEY_ALIAS }}
           ETA_RELEASE_KEY_PASSWORD: ${{ secrets.ETA_RELEASE_KEY_PASSWORD }}
         run: |
-          chmod +x gradlew
+          set -euo pipefail
           if [ "${{ inputs.variant }}" = "release" ] && [ -n "${ETA_RELEASE_STORE_FILE:-}" ]; then
-            ./gradlew :app:assembleRelease --stacktrace
+            gradle :app:assembleRelease --stacktrace --no-daemon
           else
-            ./gradlew :app:assembleDebug --stacktrace
+            gradle :app:assembleDebug --stacktrace --no-daemon
           fi
 
       - name: Upload APK
@@ -59,9 +59,3 @@ jobs:
           name: eta-local-speech-${{ inputs.variant }}
           path: app/build/outputs/apk/**/*.apk
           if-no-files-found: error
-
-      - name: Build log on failure
-        if: failure()
-        run: |
-          echo "=== gradle 失败，附最近日志 ==="
-          find . -name "*.log" -maxdepth 3 | head
