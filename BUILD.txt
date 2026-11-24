@@ -1,0 +1,4 @@
+构建时间: 2026-11-24T11:14:32Z
+提交: e4d1032df0de46a389a9e4d95368ddd1aa0b3550
+文件: Eta-debug.apk
+SHA256: 6fcb288fc3e410b6b8b54f6a4e9302c4f6a2da7d5a6b7a0da67d97b812cf1e6e
