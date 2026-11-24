@@ -141,18 +141,23 @@ internal object AgentRuntimeImageTransfer {
         val images = request.images.mapIndexed { index, image ->
             image.fileDescriptor?.let { descriptor ->
                 val startedAt = SystemClock.elapsedRealtime()
+                // Photo Picker 返回的 Uri 背后不是普通文件，statSize 会是 -1。
+                // 这种描述符没有 stat 信息，不能当成错误：以实际读到的字节数为准。
                 val statSize = descriptor.statSize
-                if (statSize <= 0L) {
-                    throw ImageTransferException("图片文件描述符无有效大小")
-                }
                 if (statSize > MAX_IMAGE_BYTES) {
                     throw ImageTransferException("单张图片不能超过 ${MAX_IMAGE_BYTES / 1024 / 1024} MiB")
                 }
                 val bytes = ParcelFileDescriptor.AutoCloseInputStream(descriptor).use { input ->
                     input.readBytesLimited(MAX_IMAGE_BYTES)
                 }
-                if (bytes.size.toLong() != statSize) {
-                    throw ImageTransferException("图片传输不完整")
+                if (bytes.isEmpty()) {
+                    throw ImageTransferException("图片内容为空")
+                }
+                if (statSize > 0L && bytes.size.toLong() != statSize) {
+                    // 描述符声明的大小与实际读取不一致：记录，但不阻断发送。
+                    AndroidAgentLogger.debug {
+                        "Agent image size mismatch index=$index declared=$statSize actual=${bytes.size}"
+                    }
                 }
                 totalBytes += bytes.size
                 if (totalBytes > MAX_TOTAL_IMAGE_BYTES) {
