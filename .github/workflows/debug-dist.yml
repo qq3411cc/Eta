@@ -1,0 +1,65 @@
+name: Debug Dist
+
+# 仓库尚未配置 ETA_RELEASE_* 签名 Secrets 时，主工作流会在「还原发布证书」处停止。
+# 这里单独出一条 Debug 构建并推到 dist 分支，保证设备侧始终有可下载的安装包。
+# 配置好签名 Secrets 后，主工作流的 dist 步骤会产出 Eta-latest.apk，本工作流可删。
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: debug-dist-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-debug:
+    name: 构建 Debug APK 并发布到 dist
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: 配置构建环境
+        uses: ./.github/actions/setup-build
+
+      - name: 构建 Debug APK
+        run: ./gradlew --no-daemon --no-configuration-cache :app:assembleDebug
+
+      - name: 同步到 dist 分支（免登录直链）
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          apks=(app/build/outputs/apk/debug/Eta-v*.apk)
+          if [[ ${#apks[@]} -ne 1 ]]; then
+            echo "::error::Debug APK 数量异常（${#apks[@]}）"
+            exit 1
+          fi
+          cp_path="${apks[0]}"
+          work="$(mktemp -d)"
+          git init -q "$work"
+          cd "$work"
+          git checkout -q -b dist
+          cp "$GITHUB_WORKSPACE/$cp_path" ./Eta-debug.apk
+          apk_sha="$(sha256sum ./Eta-debug.apk | awk '{print $1}')"
+          {
+            printf '构建时间: %s\n' "$(date -u +%FT%TZ)"
+            printf '提交: %s\n' "$GITHUB_SHA"
+            printf '文件: Eta-debug.apk\n'
+            printf 'SHA256: %s\n' "$apk_sha"
+          } > BUILD.txt
+          git add Eta-debug.apk BUILD.txt
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+              commit -qm "dist(debug): ${GITHUB_SHA::7}"
+          git push -f \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" dist
